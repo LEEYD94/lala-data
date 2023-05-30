@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body> 
+    
+    <h4><span>OO님,</span> <span>뇌에 불을 밝혀주세요.</span></h4>
+    <p>
+        <div data-type="grid" class="inline-col">
+            <div data-type="widget" id="w2023022088e9f73ffc489" class="inline-widget">
+                <div class="_widget_data" data-widget-type="inline_login_btn">	
+                <div class="widget inline_widget login_btn button  button_text txt_l text-xx-small">
+                <div>
+                <div class="inline-blocked login_btn_item ">
+                    <div class="use_info ">
+                        <img src="https://cdn.imweb.me/thumbnail/20210922/ac886d49cea66.jpg" width="150" height="150" alt="프로필 이미지" class="centered-image">
+                        <h4 class="centered-heading"><span>브레인 룩스 Lux.0</span></h4>
+                        <!-- <a onclick="SITE_MEMBER.showMemberProfile($(this));"><span class="sr-only">정보 수정</span></a><a href="javascript:;" onclick="SITE_MEMBER.showMemberProfile($(this));" class="info_img holder"><span class="sr-only">정보 수정</span><img src="https://cdn.imweb.me/thumbnail/20210922/ac886d49cea66.jpg" width="150" height="150" alt="프로필 이미지"><span class="badge_wrap inline_login_profile_badge"></span></a> -->
+                    </div>
+                </div>
+            </div>					
+        </div>
+    </p>
+    
+    
+	<p id="response"></p>
+
+
+
+    <!-- css -->
+    <style>
+        .centered-image{
+            display: inline;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .centered-heading{
+            text-align: center;
+        }
+    </style>
+
+
+    <!-- java script -->
+    <script>
+        function handleResponse(response) {
+            // 응답 데이터 처리
+            console.log(response);
+            // 예시: #response 요소에 데이터 표시
+            $('#response').text(JSON.stringify(response));
+        }
+    </script>
+    <script>
+        function jsonpRequest(url) {
+            const script = document.createElement('script');
+            script.src = url;
+            document.body.appendChild(script);
+        }
+
+        // JSONP 요청 보내기
+        const apiUrl = 'https://api.imweb.me/v2/auth';
+        const accessKey = 'bfe30f44b4171980601cf171c577b2ff0e5fd171a6';
+        const accessSecret = '22b9a33a8cbdfcfc0478c4';
+        const callbackName = 'handleResponse'; // 서버에서 응답을 래핑할 콜백 함수 이름
+
+        const requestUrl = `${apiUrl}?access_key=${accessKey}&access_secret=${accessSecret}&callback=${callbackName}`;
+        jsonpRequest(requestUrl);
+    </script>
+    <!-- <script>
+        fetch('https://api.imweb.me/v2/auth',{
+            method: 'GET',
+            headers: { 
+                'content-type': 'application/json',                
+                'key': accessKey, 
+                'secret': accessSecret
+            },
+        })        
+        .then((response) => {
+            if(!response.ok){
+                throw new Error('400 아니면 500 에러남')
+            }
+            return response.json()
+        })
+        .then((data) => {
+            document.getElementById("")
+            console.log(data)
+        })
+        .catch(() => console.log('에러남'))
+    </script> -->
+
+    
+</body>
+
+</html>
